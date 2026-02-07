@@ -1,0 +1,20 @@
+{
+  "name": "wsj",
+  "version": "1.0.0",
+  "description": "WSJ reader CLI — modular tools for headlines, articles, search, and preferences",
+  "main": "wsj.mjs",
+  "bin": {
+    "wsj": "./wsj.mjs"
+  },
+  "scripts": {
+    "test": "node --test wsj.test.mjs",
+    "test:e2e": "node --test --test-timeout=120000 wsj.e2e.test.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.58.1"
+  }
+}

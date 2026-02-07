@@ -1,0 +1,8 @@
+{
+  "name": "wsj",
+  "version": "1.0.0",
+  "description": "WSJ reader with modular tools for headlines, articles, search, and preferences",
+  "skills": [
+    "skills/wsj/SKILL.md"
+  ]
+}
