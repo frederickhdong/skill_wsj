@@ -1,0 +1,20 @@
+{
+  "name": "wsj",
+  "owner": {
+    "name": "frederickhdong"
+  },
+  "metadata": {
+    "description": "WSJ reader plugin for Claude Code — headlines, articles, search, and personalized preferences"
+  },
+  "plugins": [
+    {
+      "name": "wsj",
+      "source": ".",
+      "description": "WSJ reader with modular tools for headlines, articles, search, and preferences",
+      "version": "1.0.0",
+      "homepage": "https://github.com/frederickhdong/skill_wsj",
+      "repository": "https://github.com/frederickhdong/skill_wsj",
+      "keywords": ["wsj", "wall-street-journal", "news", "finance", "markets"]
+    }
+  ]
+}
