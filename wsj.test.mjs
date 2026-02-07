@@ -741,6 +741,61 @@ describe('Additional Prefs Tests', () => {
 });
 
 // ============================================
+// Morning Feed E2E Tests (24-hour freshness)
+// ============================================
+
+describe('Morning Feed - 24hr freshness', () => {
+  it('rss all should have some articles within the last 24 hours per section', () => {
+    const { stdout, exitCode } = runCLI('rss all --json', { withProfile: true });
+    assert.strictEqual(exitCode, 0, 'Should exit with code 0');
+
+    const data = JSON.parse(stdout);
+    const now = Date.now();
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+
+    for (const section of data.sections) {
+      const freshCount = section.articles.filter(a => {
+        if (!a.pubDate) return false;
+        return (now - new Date(a.pubDate).getTime()) <= twentyFourHours;
+      }).length;
+      assert.ok(
+        freshCount >= 3,
+        `Section "${section.section}" has only ${freshCount} articles within 24h, expected at least 3`
+      );
+    }
+  });
+
+  it('rss single section should have some articles within the last 24 hours', () => {
+    const { stdout, exitCode } = runCLI('rss markets --json', { withProfile: true });
+    assert.strictEqual(exitCode, 0, 'Should exit with code 0');
+
+    const data = JSON.parse(stdout);
+    const now = Date.now();
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+
+    const freshCount = data.articles.filter(a => {
+      if (!a.pubDate) return false;
+      return (now - new Date(a.pubDate).getTime()) <= twentyFourHours;
+    }).length;
+    assert.ok(
+      freshCount >= 3,
+      `Markets section has only ${freshCount} articles within 24h, expected at least 3`
+    );
+  });
+
+  it('all articles should have a non-empty pubDate', () => {
+    const { stdout } = runCLI('rss all --json', { withProfile: true });
+    const data = JSON.parse(stdout);
+
+    for (const section of data.sections) {
+      for (const article of section.articles) {
+        assert.ok(article.pubDate, `Article "${article.title}" in ${section.section} is missing pubDate`);
+      }
+    }
+  });
+});
+
+// ============================================
 // Additional RSS Tests
 // ============================================
 

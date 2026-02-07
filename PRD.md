@@ -84,7 +84,7 @@ Users and agents can add any fields. See [ADR-005](decisions/005-user-profiles-a
 
 ## RSS Headlines (`wsj rss`)
 
-Fetches headlines from WSJ public RSS feeds. No authentication needed.
+Fetches headlines from WSJ public RSS feeds at `feeds.content.dowjones.io`. No authentication needed.
 
 ### Commands
 

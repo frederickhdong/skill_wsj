@@ -12,12 +12,12 @@ const CDP_URL = `http://127.0.0.1:${CDP_PORT}`;
 
 // WSJ RSS feeds (no auth needed)
 const RSS_FEEDS = {
-  world: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
-  us: 'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml',
-  markets: 'https://feeds.a.dj.com/rss/RSSMarketsMain.xml',
-  opinion: 'https://feeds.a.dj.com/rss/RSSOpinion.xml',
-  tech: 'https://feeds.a.dj.com/rss/RSSWSJD.xml',
-  lifestyle: 'https://feeds.a.dj.com/rss/RSSLifestyle.xml',
+  world: 'https://feeds.content.dowjones.io/public/rss/RSSWorldNews',
+  us: 'https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness',
+  markets: 'https://feeds.content.dowjones.io/public/rss/RSSMarketsMain',
+  opinion: 'https://feeds.content.dowjones.io/public/rss/RSSOpinion',
+  tech: 'https://feeds.content.dowjones.io/public/rss/RSSWSJD',
+  lifestyle: 'https://feeds.content.dowjones.io/public/rss/RSSLifestyle',
 };
 
 // XDG-compliant config directory
